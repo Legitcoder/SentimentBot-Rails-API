@@ -1,5 +1,7 @@
 class Api::UsersController < ApplicationController
 
+  before_action :verify_jwt_token, only: [:changePassword]
+
   def index
     @users = User.all
   end
@@ -12,6 +14,30 @@ class Api::UsersController < ApplicationController
     else
       @errors = @user.errors.full_messages
       render json: { message: @errors }, status: :unauthorized
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.password = params[:password]
+    @user.save()
+    if @user.save
+      render :ok, json: {}
+    else
+      @errors = @user.errors.full_messages
+      render json: { message: @errors }, status: :unprocessable_entity
+    end
+  end
+
+  def changePassword
+    @user = User.find_by(email: params[:email])
+    @user.password = params[:password]
+    @user.save()
+    if @user.save
+      render :ok, json: {}
+    else
+      @errors = @user.errors.full_messages
+      render json: { message: @errors }, status: :unprocessable_entity
     end
   end
 
