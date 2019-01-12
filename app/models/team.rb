@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
   has_many :users
-  belongs_to :manager, class_name: "User", foreign_key: :manager_id
+  belongs_to :user, optional: true
   has_many :surveys
 end

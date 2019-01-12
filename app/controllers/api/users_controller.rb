@@ -12,10 +12,24 @@ class Api::UsersController < ApplicationController
   end
 
 
+  #Handle both deleting account and only removing user from team
+  def destroy
+    @team = Team.find(params[:team_id])
+    if @team
+      #Only delete from team
+      @user = User.find(params[:id])
+      @team.users.delete(@user)
+    else
+      #Delete account
+      @user.destroy
+    end
+  end
+
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.permit(:username, :email, :password)
   end
 
 end

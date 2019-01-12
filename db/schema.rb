@@ -49,9 +49,10 @@ ActiveRecord::Schema.define(version: 2019_01_12_042801) do
   create_table "teams", force: :cascade do |t|
     t.string "team_name"
     t.integer "code"
-    t.integer "manager_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "teams_users", force: :cascade do |t|
@@ -70,9 +71,10 @@ ActiveRecord::Schema.define(version: 2019_01_12_042801) do
     t.string "password_digest"
     t.string "image_url"
     t.boolean "is_admin"
-    t.integer "team_id"
+    t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
   add_foreign_key "feelings", "surveys"
