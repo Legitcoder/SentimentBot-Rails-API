@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mood: MyString
+  emoji: MyString
+  date: 2019-01-11
+  image_url: MyString
+  longitude: 
+  latitude: 
+
+two:
+  mood: MyString
+  emoji: MyString
+  date: 2019-01-11
+  image_url: MyString
+  longitude: 
+  latitude: 

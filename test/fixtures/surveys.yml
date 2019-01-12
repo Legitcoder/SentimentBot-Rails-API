@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  schedule: MyString
+  team: one
+  question: MyString
+
+two:
+  schedule: MyString
+  team: two
+  question: MyString

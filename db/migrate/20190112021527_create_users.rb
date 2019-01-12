@@ -6,7 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :password_digest
       t.references :team, foreign_key: true
-      t.string :image
+      t.string :image_url
+      t.boolean :is_admin
 
       t.timestamps
     end
