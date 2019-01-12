@@ -6,8 +6,8 @@ class CreateResponses < ActiveRecord::Migration[5.2]
       t.references :survey, foreign_key: true
       t.date :date
       t.string :image_url
-      t.double :longitude
-      t.double :latitude
+      t.float :longitude
+      t.float :latitude
 
       t.timestamps
     end
