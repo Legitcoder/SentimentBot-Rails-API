@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_031752) do
+ActiveRecord::Schema.define(version: 2019_01_12_042801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,15 +49,18 @@ ActiveRecord::Schema.define(version: 2019_01_12_031752) do
   create_table "teams", force: :cascade do |t|
     t.string "team_name"
     t.integer "code"
+    t.integer "manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "teams_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "team_id", null: false
-    t.index ["team_id", "user_id"], name: "index_teams_users_on_team_id_and_user_id"
-    t.index ["user_id", "team_id"], name: "index_teams_users_on_user_id_and_team_id"
+  create_table "teams_users", force: :cascade do |t|
+    t.bigint "team_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_teams_users_on_team_id"
+    t.index ["user_id"], name: "index_teams_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_031752) do
     t.string "password_digest"
     t.string "image_url"
     t.boolean "is_admin"
+    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,4 +78,6 @@ ActiveRecord::Schema.define(version: 2019_01_12_031752) do
   add_foreign_key "feelings", "surveys"
   add_foreign_key "responses", "surveys"
   add_foreign_key "surveys", "teams"
+  add_foreign_key "teams_users", "teams"
+  add_foreign_key "teams_users", "users"
 end
