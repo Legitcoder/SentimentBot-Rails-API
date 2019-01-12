@@ -18,15 +18,6 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.password = params[:password]
-    @user.save()
-    if @user.save
-      render :ok, json: {}
-    else
-      @errors = @user.errors.full_messages
-      render json: { message: @errors }, status: :unprocessable_entity
-    end
   end
 
   def changePassword
