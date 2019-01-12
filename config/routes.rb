@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     end
     resources :tokens, only: [:create]
     resources :teams do
-      resources :users, only: [:create, :destroy]
-      resources :surveys, only [:create, destroy]
+      resources :users, only: [:index, :create, :destroy]
+      resources :surveys, only: [:create, :destroy]
     end
   end
 end

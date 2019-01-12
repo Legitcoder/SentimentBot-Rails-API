@@ -1,5 +1,7 @@
 class Api::TeamsController < ApplicationController
 
+  before_action :verify_jwt_token
+
   def create
     @team = Team.new(team_params)
     @team.user = current_user
