@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :tokens, only: [:create]
     resources :teams do
       resources :users, only: [:create, :destroy]
+      resources :surveys, only [:create, destroy]
     end
   end
 end
