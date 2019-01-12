@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::FeelzControllerTest < ActionDispatch::IntegrationTest
+class ResponseTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

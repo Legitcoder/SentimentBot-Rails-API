@@ -1,13 +1,14 @@
-class CreateFeelzs < ActiveRecord::Migration[5.2]
+class CreateResponses < ActiveRecord::Migration[5.2]
   def change
-    create_table :feelzs do |t|
+    create_table :responses do |t|
       t.string :mood
       t.string :emoji
+      t.references :survey, foreign_key: true
       t.date :date
       t.string :image_url
       t.double :longitude
       t.double :latitude
-      t.references :survey, foreign_key: true
+
       t.timestamps
     end
   end
