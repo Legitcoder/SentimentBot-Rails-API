@@ -67,7 +67,6 @@ class Api::UsersController < ApplicationController
       else
         render json: { message: "User couldn't be removed from team, Please Try again!" }, status: :unprocessable_entity
       end
-
     else
       #Delete account
       @user.destroy
