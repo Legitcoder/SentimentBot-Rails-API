@@ -23,6 +23,9 @@ Request Body:
 { email: String, password: String }
 ```
 
+Every Endpoint Below Requires JWT 
+token in Authorization Header 
+
 ## Join a Team
 
 ```
