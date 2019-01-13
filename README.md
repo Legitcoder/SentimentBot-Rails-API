@@ -1,6 +1,19 @@
 # Sentiment Bot Rails API
 
-### Sign up
+
+
+### Sign Up
+
+```
+POST api/users
+```
+Request Body:
+
+```
+{ firstName: String, lastName: String, email: String, password: String }
+```
+
+### Log In
 
 ```
 POST api/tokens
@@ -9,18 +22,6 @@ Request Body:
 
 ```
 { firstName: email: String, password: String }
-```
-
-
-### Log In
-
-```
-POST api/users
-```
-Request Body:
-
-```
-{ email: String, password: String }
 ```
 
 ## Every Endpoint Below Requires JWT token in Authorization Header 
