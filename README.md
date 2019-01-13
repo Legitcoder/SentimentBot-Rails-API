@@ -1,6 +1,6 @@
 # Sentiment Bot Rails API
 
-## Sign up
+### Sign up
 
 ```
 POST api/tokens
@@ -12,7 +12,7 @@ Request Body:
 ```
 
 
-## Log In
+### Log In
 
 ```
 POST api/users
@@ -23,10 +23,9 @@ Request Body:
 { email: String, password: String }
 ```
 
-Every Endpoint Below Requires JWT 
-token in Authorization Header 
+## Every Endpoint Below Requires JWT token in Authorization Header 
 
-## Join a Team
+### Join a Team
 
 ```
 POST api/join
@@ -37,7 +36,7 @@ Request Body:
 { code: Integer }
 ```
 
-## Create a Team
+### Create a Team
 
 ```
 POST api/teams
@@ -48,7 +47,7 @@ Request Body:
 { teamName: String }
 ```
 
-## Create a Survey
+### Create a Survey
 
 ```
 POST api/users/:userId/surveys
@@ -70,7 +69,7 @@ simple ask "How do you feel?", however the field is
 present for future feature expansion
 
 
-## Delete a Feeling option of a Survey
+### Delete a Feeling option of a Survey
    
 ```
 DELETE api/surveys/:surveyId/feelings
@@ -81,7 +80,7 @@ Request Body:
 N/A
 ```
 
-## Leave Team or Remove User from Team
+### Leave Team or Remove User from Team
 ```
 DELETE api/:teamid/users/:id
 ```
@@ -91,7 +90,7 @@ Request Body:
 N/A
 ```
 
-## Create a Response(Feelzy)
+### Create a Response(Feelzy)
 
 ```
 POST api/users/:userId/responses
