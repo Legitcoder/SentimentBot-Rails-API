@@ -9,6 +9,6 @@ class ApplicationController < ActionController::API
     token = request.headers['Authorization'].split(' ').last
     decoded_token = JWT.decode(token, Rails.application.secrets.secret_key_base).first
     id = decoded_token["id"]
-    User.find(id)
+    return User.find(id)
   end
 end

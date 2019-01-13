@@ -3,10 +3,34 @@ class Api::UsersController < ApplicationController
   before_action :verify_jwt_token, only: [:changePassword]
 
   def index
-    @users = User.all
+    @team = Team.find(params[:team_id])
+
+    if @team
+      @users = @team.users
+    else
+      @users = User.all
+    end
+
+    if !@team
+      render json: {message: "Invalid Code" }, status: :unprocessable_entity
+    end
+
   end
 
-  #Sign up new user
+  def join
+    @team = Team.find_by(code: params[:code])
+    debugger
+    if @team
+      @user =  User.find(current_user.id)
+      debugger
+      @team.users.push(@user)
+      debugger
+      @user.is_admin = false
+      render :ok, json: { team: @team }
+    end
+  end
+
+  #Sign up new user Or Adds a user to a team
   def create
     @user = User.new(user_params)
     if @user.save

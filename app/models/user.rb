@@ -6,11 +6,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :email, format: {with: VALID_EMAIL_REGEX}
   validates :password, presence: true, on: :create
-  validates :firstName, :lastName, presence: true
+  validates :first_name, :last_name, presence: true
 
 
   belongs_to :team, optional: true
   has_many :teams
-  has_many :users
+  has_many :users, through: :teams
   has_many :responses
 end

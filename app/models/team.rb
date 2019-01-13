@@ -5,7 +5,7 @@ class Team < ApplicationRecord
 
   before_validation :ensure_team_code_uniqueness
 
-  def generate_code
+  def self.generate_code
     rand.to_s[2..6].to_i
   end
 

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     put 'changePassword' => "users#changePassword"
+    post 'join' => "users#join"
     resources :users do
       resources :teams, only: [:create, :destroy]
+      resources :responses, only: [:create, :destroy]
     end
     resources :tokens, only: [:create]
     resources :teams do

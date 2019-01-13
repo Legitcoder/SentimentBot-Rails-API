@@ -16,6 +16,9 @@ for _ in 0..50
   users << user
 end
 
+team = Team.create(team_name: "Team A", code: 12345)
+team.save()
+
 #Save each user
 users.each do |user|
   user.save()
