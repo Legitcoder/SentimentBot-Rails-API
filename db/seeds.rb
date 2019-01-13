@@ -11,6 +11,8 @@ emojis = ['😄','😃','😀','😊','😉','😍','😘','😚','😗','😙',
 moin = User.create(email: "moin@moin.com", first_name: "moin", last_name: "uddin", is_admin: true, password: "123456", phone: "123-456-7890")
 moin.save()
 
+triggers = ["daily", "weekly", "monthly"]
+
 managers = [moin]
 
 for _ in 0..10
@@ -31,14 +33,14 @@ end
 surveys = []
 
 for _ in 0..200
-  survey = Survey.create(schedule: "daily", team: teams.sample)
+  survey = Survey.create(schedule: triggers.sample, team: teams.sample, question: Faker::Lorem.sentence)
   surveys << survey
   survey.save()
 end
 
 users = []
 
-for _ in 0..80
+for _ in 0..200
   user = User.create(team: teams.sample, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Lorem.word, is_admin: false, phone: Faker::PhoneNumber.phone_number)
   users << user
   user.save()
