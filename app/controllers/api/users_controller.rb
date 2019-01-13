@@ -62,6 +62,12 @@ class Api::UsersController < ApplicationController
       #Only delete from team
       @user = User.find(params[:id])
       @team.users.delete(@user)
+      if !@team.users.contains(@user)
+        render :ok, json: { user: @user }
+      else
+        render json: { message: "User couldn't be removed from team, Please Try again!" }, status: :unprocessable_entity
+      end
+
     else
       #Delete account
       @user.destroy
