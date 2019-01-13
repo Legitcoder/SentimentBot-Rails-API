@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     post 'join' => "users#join"
     resources :users do
       resources :teams, only: [:create, :destroy]
-      resources :responses, only: [:create, :destroy]
+      resources :responses, only: [:index,  :create, :destroy]
     end
     resources :tokens, only: [:create]
     resources :teams do

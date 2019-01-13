@@ -16,9 +16,9 @@ triggers = ["daily", "weekly", "monthly"]
 managers = [moin]
 
 for _ in 0..10
-  manager = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, is_admin: true, phone: Faker::PhoneNumber.phone_number)
+  manager = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Lorem.word, is_admin: true, phone: Faker::PhoneNumber.phone_number)
   managers << manager
-  manager.save
+  manager.save()
 end
 
 teams = []

@@ -1,0 +1,1 @@
+json.array! @responses, :id, :emoji, :mood, :longitude, :latitude, :date

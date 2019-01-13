@@ -53,8 +53,18 @@ POST api/users/:userId/surveys
 Request Body:
 
 ```
-{ mood: String, emoji: String, userId: Integer }
+{ schedule: String }
 ```
+
+ Optional :
+
+```
+{ question: String }
+```
+
+Note: Question is optional for now because MVP will 
+simple ask "How do you feel?", however the field is
+present for future feature expansion
 
 ## Create a Response(Feelzy)
 

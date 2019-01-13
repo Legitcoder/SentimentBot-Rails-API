@@ -2,9 +2,13 @@ class Api::ResponsesController < ApplicationController
 
   before_action :verify_jwt_token
 
+  def index
+    @user = User.find(params[:user_id])
+    @responses = @user.responses
+  end
+
   #Create a response(feelzy)
   def create
-    debugger
     @user = User.find(params[:user_id])
     @response = Response.new(response_params)
     @user.responses << @response

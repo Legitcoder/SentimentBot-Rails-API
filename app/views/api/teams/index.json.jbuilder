@@ -3,5 +3,5 @@ json.array!(@teams) do |team|
   json.user team.user, :id, :first_name, :last_name, :email, :phone if team.user
   json.surveys team.surveys, :id, :schedule, :question if team.surveys
   json.responses team.responses, :id, :emoji, :mood, :longitude, :latitude, :date  if team.responses
-  json.users team.users, :id, :first_name, :last_name, :email, :phone if team.users
+  json.users team.users, :id, :first_name, :last_name, :email, :is_admin, :phone if team.users
 end
