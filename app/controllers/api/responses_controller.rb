@@ -4,9 +4,11 @@ class Api::ResponsesController < ApplicationController
 
   #Create a response(feelzy)
   def create
+    debugger
     @user = User.find(params[:user_id])
-    @response = Response.new()
+    @response = Response.new(response_params)
     @user.responses << @response
+    debugger
     if @response.save
       render :ok, json: {response: @response}
     else

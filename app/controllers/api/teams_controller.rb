@@ -12,7 +12,7 @@ class Api::TeamsController < ApplicationController
     @user = @team.user
     @user.is_admin = true
     if @team.save
-      render :ok, json: {}
+      render :ok, json: {team: @team}
     else
       @errors = @team.errors.full_messages
       render json: { message: @errors }, status: :unprocessable_entity

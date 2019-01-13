@@ -2,6 +2,7 @@ class Team < ApplicationRecord
   has_many :users
   belongs_to :user, optional: true
   has_many :surveys
+  has_many :responses, through: :users
 
   before_validation :ensure_team_code_uniqueness
 
@@ -10,6 +11,7 @@ class Team < ApplicationRecord
   end
 
   def ensure_team_code_uniqueness
+    self.code = Team.generate_code
     if Team.find_by(code: self.code)
       self.code = Team.generate_code
       self.save

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_01_13_000043) do
     t.string "mood"
     t.string "emoji"
     t.bigint "survey_id"
+    t.bigint "user_id"
     t.date "date"
     t.string "image_url"
     t.float "longitude"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_01_13_000043) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["survey_id"], name: "index_responses_on_survey_id"
+    t.index ["user_id"], name: "index_responses_on_user_id"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_01_13_000043) do
 
   add_foreign_key "feelings", "surveys"
   add_foreign_key "responses", "surveys"
+  add_foreign_key "responses", "users"
   add_foreign_key "surveys", "teams"
   add_foreign_key "teams_users", "teams"
   add_foreign_key "teams_users", "users"

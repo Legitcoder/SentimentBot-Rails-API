@@ -1,4 +1,4 @@
 class Response < ApplicationRecord
-  belongs_to :survey
+  belongs_to :survey, optional: true
   belongs_to :user
 end

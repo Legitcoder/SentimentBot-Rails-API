@@ -5,4 +5,4 @@ require_relative 'application'
 Rails.application.initialize!
 
 #Render JSON from snake_case to camelCase
-#Jbuilder.key_format camelize: :lower
+Jbuilder.key_format camelize: :lower

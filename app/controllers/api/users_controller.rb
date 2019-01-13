@@ -11,23 +11,21 @@ class Api::UsersController < ApplicationController
       @users = User.all
     end
 
-    if !@team
-      render json: {message: "Invalid Code" }, status: :unprocessable_entity
-    end
-
   end
 
   def join
     @team = Team.find_by(code: params[:code])
-    debugger
     if @team
       @user =  User.find(current_user.id)
-      debugger
-      @team.users.push(@user)
-      debugger
+      @team.users << @user
       @user.is_admin = false
       render :ok, json: { team: @team }
     end
+
+    if !@team
+      render json: {message: "Invalid Code" }, status: :unprocessable_entity
+    end
+
   end
 
   #Sign up new user Or Adds a user to a team

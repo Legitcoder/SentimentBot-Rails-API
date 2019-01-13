@@ -8,7 +8,7 @@ class Api::SurveysController < ApplicationController
 
   def create
     @team = Team.find(params[:team_id])
-    schedule = params[:survey][:schedule]
+    schedule = params[:schedule]
     @survey = Survey.new(schedule: schedule)
     @survey.team = @team
     if @survey.save
