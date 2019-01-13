@@ -21,7 +21,7 @@ POST api/tokens
 Request Body:
 
 ```
-{ firstName: email: String, password: String }
+{ email: String, password: String }
 ```
 
 ## Every Endpoint Below Requires JWT token in Authorization Header 
