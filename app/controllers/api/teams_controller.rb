@@ -20,8 +20,11 @@ class Api::TeamsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    @user.is_admin = false
     @team = Team.find(params[:id])
     @team.destroy
+    @user.save
   end
 
   def team_params

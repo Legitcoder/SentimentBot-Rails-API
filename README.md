@@ -66,6 +66,28 @@ Note: Question is optional for now because MVP will
 simple ask "How do you feel?", however the field is
 present for future feature expansion
 
+
+## Delete a Feeling option of a Survey
+   
+```
+DELETE api/surveys/:surveyId/feelings
+```
+Request Body:
+
+```
+N/A
+```
+
+## Leave Team or Remove User from Team
+```
+DELETE api/:teamid/users/:id
+```
+Request Body:
+
+```
+N/A
+```
+
 ## Create a Response(Feelzy)
 
 ```
@@ -74,7 +96,7 @@ POST api/users/:userId/responses
 Request Body:
 
 ```
-{ mood: String, emoji: String, userId: Integer }
+{ mood: String, emoji: String, userId: Integer, longitude: Float, latitude: Float }
 ```
  Optional :
 
@@ -83,5 +105,6 @@ Request Body:
 ```
 
 Note: Team receives responses through users
-which is why surveyId is optional
-
+which is why surveyId is optional.
+Beyond MVP once a user can join multiple
+this will not work and need to fixed.
