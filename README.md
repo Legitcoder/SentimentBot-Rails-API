@@ -98,12 +98,12 @@ POST api/users/:userId/responses
 Request Body:
 
 ```
-{ mood: String, emoji: String, userId: Integer, longitude: Float, latitude: Float }
+{ mood: String, emoji: String, userId: Integer}
 ```
  Optional :
 
 ```
-{ imageUrl: String, surveyId: Integer }
+{ imageUrl: String, surveyId: Integer, longitude: Float, latitude: Float }
 ```
 
 Note: Team receives responses through users
