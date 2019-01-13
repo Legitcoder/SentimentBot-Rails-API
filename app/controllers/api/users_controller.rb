@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  before_action :verify_jwt_token, only: [:changePassword]
+  before_action :verify_jwt_token, except: [:create]
 
   def index
     @team = Team.find(params[:team_id])
@@ -28,7 +28,7 @@ class Api::UsersController < ApplicationController
 
   end
 
-  #Sign up new user Or Adds a user to a team
+  #Sign up new user
   def create
     @user = User.new(user_params)
     if @user.save
