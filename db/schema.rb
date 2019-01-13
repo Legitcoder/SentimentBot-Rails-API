@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_01_13_000043) do
     t.string "email"
     t.string "password_digest"
     t.string "image_url"
-    t.boolean "is_admin"
+    t.boolean "is_admin", default: false
     t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
