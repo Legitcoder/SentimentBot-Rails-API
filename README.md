@@ -106,5 +106,5 @@ Request Body:
 
 Note: Team receives responses through users
 which is why surveyId is optional.
-Beyond MVP once a user can join multiple
+Beyond MVP once a user can join multiple teams
 this will not work and need to fixed.
