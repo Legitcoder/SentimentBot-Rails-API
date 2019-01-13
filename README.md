@@ -1,24 +1,46 @@
-# README
+# Sentiment Bot Rails API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Sign up
 
-Things you may want to cover:
+```
+POST api/tokens
+```
+Request Body:
 
-* Ruby version
+```
+{ firstName: email: String, password: String }
+```
 
-* System dependencies
 
-* Configuration
+##Log In
 
-* Database creation
+```
+POST api/users
+```
+Request Body:
 
-* Database initialization
+```
+{ email: String, password: String }
+```
 
-* How to run the test suite
+##Join a Team
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+POST api/join
+```
+Request Body:
 
-* Deployment instructions
+```
+{ code: Integer }
+```
 
-* ...
+##Create a Team
+
+```
+POST api/teams
+```
+Request Body:
+
+```
+{ team: Integer }
+```
