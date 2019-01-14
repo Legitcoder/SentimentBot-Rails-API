@@ -4,18 +4,15 @@ class Team < ApplicationRecord
   has_many :surveys
   has_many :responses, through: :users
 
-  before_validation :ensure_team_code_uniqueness
+  before_validation :set_code
 
   def self.generate_code
-    rand.to_s[2..6].to_i
+    rand.to_s[2..6]
   end
 
-  def ensure_team_code_uniqueness
+  def set_code
     self.code = Team.generate_code
-    if Team.find_by(code: self.code)
-      self.code = Team.generate_code
-      self.save
-    end
+    set_code if Team.find_by(code: code)
   end
 
 end

@@ -1,8 +1,6 @@
 # Sentiment Bot Rails API
 
-
-
-### Sign Up
+#### Sign Up
 
 ```
 POST api/users
@@ -13,7 +11,7 @@ Request Body:
 { firstName: String, lastName: String, email: String, password: String }
 ```
 
-### Log In
+#### Log In
 
 ```
 POST api/tokens
@@ -26,7 +24,23 @@ Request Body:
 
 ## Every Endpoint Below Requires JWT token in Authorization Header 
 
-### Join a Team
+#### Get User
+
+```
+GET api/users/:id
+```
+Request Body:
+
+```
+{ id: Integer }
+```
+
+Note: This endpoint should be used after logging in and decoding the JWT
+token to get the userId to retrieve all user attributes. 
+
+### User Endpoints 
+
+#### Join a Team
 
 ```
 POST api/join
@@ -37,61 +51,7 @@ Request Body:
 { code: Integer }
 ```
 
-### Create a Team
-
-```
-POST api/teams
-```
-Request Body:
-
-```
-{ teamName: String }
-```
-
-### Create a Survey
-
-```
-POST api/users/:userId/surveys
-```
-Request Body:
-
-```
-{ schedule: String }
-```
-
- Optional :
-
-```
-{ question: String }
-```
-
-Note: Question is optional for now because MVP will 
-simple ask "How do you feel?", however the field is
-present for future feature expansion
-
-
-### Delete a Feeling option of a Survey
-   
-```
-DELETE api/surveys/:surveyId/feelings
-```
-Request Body:
-
-```
-N/A
-```
-
-### Leave Team or Remove User from Team
-```
-DELETE api/:teamid/users/:id
-```
-Request Body:
-
-```
-N/A
-```
-
-### Create a Response(Feelzy)
+#### Create a Response(Feelzy)
 
 ```
 POST api/users/:userId/responses
@@ -111,3 +71,71 @@ Note: Team receives responses through users
 which is why surveyId is optional.
 Beyond MVP once a user can join multiple teams
 this will not work and needs to fixed.
+
+### Manager Endpoints
+
+#### Create a Team
+
+```
+POST api/teams
+```
+Request Body:
+
+```
+{ teamName: String }
+```
+
+#### Create a Survey
+
+```
+POST api/users/:userId/surveys
+```
+Request Body:
+
+```
+{ schedule: String }
+```
+
+Optional :
+
+```
+{ question: String }
+```
+
+Note: Question is optional for now because MVP will 
+simple ask "How do you feel?", however the field is
+present for future feature expansion
+
+#### Create a Feeling option of a Survey
+   
+```
+POST api/surveys/:surveyId/feelings
+```
+Request Body:
+
+```
+{ mood: String, emoji: String }
+```
+
+#### Delete a Feeling option of a Survey
+   
+```
+DELETE api/surveys/:surveyId/feelings
+```
+Request Body:
+
+```
+N/A
+```
+
+### Manager and User Endpoints
+
+#### Leave Team or Remove User from Team
+```
+DELETE api/:teamid/users/:id
+```
+Request Body:
+
+```
+N/A
+```
