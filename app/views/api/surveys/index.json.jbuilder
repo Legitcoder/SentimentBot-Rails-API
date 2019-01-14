@@ -1,0 +1,1 @@
+json.array! @surveys, :id, :schedule, :feelings

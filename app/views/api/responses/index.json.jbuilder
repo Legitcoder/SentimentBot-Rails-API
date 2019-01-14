@@ -1,1 +1,1 @@
-json.array! @responses, :id, :emoji, :mood, :longitude, :latitude, :date
+json.array! @responses, :id, :emoji, :mood, :longitude, :latitude, :date, :user_id

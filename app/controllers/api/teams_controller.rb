@@ -1,9 +1,18 @@
 class Api::TeamsController < ApplicationController
 
-  before_action :verify_jwt_token, except: [:index]
+  before_action :verify_jwt_token
 
   def index
-    @teams = Team.all
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @teams = @user.teams
+    else
+      @teams = Team.all
+    end
+  end
+
+  def show
+    @team = Team.find(params[:id])
   end
 
   def create
@@ -11,6 +20,7 @@ class Api::TeamsController < ApplicationController
     @team.user = current_user
     @user = @team.user
     @user.is_admin = true
+    @user.save
     if @team.save
       render :ok, json: {team: @team}
     else

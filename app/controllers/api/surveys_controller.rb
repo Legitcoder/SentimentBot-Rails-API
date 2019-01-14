@@ -1,9 +1,22 @@
 class Api::SurveysController < ApplicationController
 
-  before_action :verify_jwt_token, except: [:index]
+  before_action :verify_jwt_token
 
   def index
-    @surveys = Survey.all
+    if params[:team_id].present?
+      @team = Team.find(params[:team_id])
+      @surveys = @team.surveys
+    else
+      @surveys = Survey.all
+    end
+  end
+
+  def show
+    @survey = Survey.find(params[:id])
+  end
+
+  def update
+
   end
 
   def create

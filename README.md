@@ -59,7 +59,7 @@ POST api/users/:userId/responses
 Request Body:
 
 ```
-{ mood: String, emoji: String, userId: Integer}
+{ mood: String, emoji: String }
 ```
  Optional :
 
@@ -70,7 +70,7 @@ Request Body:
 Note: Team receives responses through users
 which is why surveyId is optional.
 Beyond MVP once a user can join multiple teams
-this will not work and needs to fixed.
+this will not work and needs to fixed. Longitude and Latitude is only required for mobile.
 
 ### Manager Endpoints
 
@@ -85,10 +85,21 @@ Request Body:
 { teamName: String }
 ```
 
-#### Create a Survey
+#### Get Team's User Responses(Feelzys)
 
 ```
-POST api/users/:userId/surveys
+GET api/teams/:teamId/responses
+```
+Request Body:
+
+```
+N/A
+```
+
+#### Create a Team's Survey
+
+```
+POST api/teams/:teamId/surveys
 ```
 Request Body:
 
@@ -101,10 +112,35 @@ Optional :
 ```
 { question: String }
 ```
-
 Note: Question is optional for now because MVP will 
 simple ask "How do you feel?", however the field is
 present for future feature expansion
+
+#### Get Team's Surveys
+
+```
+GET api/teams/:teamId/surveys
+```
+Request Body:
+
+```
+N/A
+```
+
+Note: Only use first survey object in team's surveys array. MVP will be static to one survey.
+
+
+#### Get Feeling options of a Survey
+   
+```
+GET api/surveys/:surveyId/feelings
+```
+Request Body:
+
+```
+N/A
+```
+
 
 #### Create a Feeling option of a Survey
    
@@ -120,7 +156,7 @@ Request Body:
 #### Delete a Feeling option of a Survey
    
 ```
-DELETE api/surveys/:surveyId/feelings
+DELETE api/feelings/:id
 ```
 Request Body:
 
@@ -138,4 +174,14 @@ Request Body:
 
 ```
 N/A
+```
+
+#### Change Password
+```
+POST api/changePassword
+```
+Request Body:
+
+```
+{ password: String }
 ```

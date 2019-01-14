@@ -1,0 +1,1 @@
+json.array! @feelings, :id, :emoji, :mood
