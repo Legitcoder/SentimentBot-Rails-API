@@ -1,5 +1,11 @@
 # Sentiment Bot Rails API
 
+<http://sentimentbot-1.herokuapp.com/api>
+
+Teams JSON to get an idea of the data structure:
+
+<http://sentimentbot-1.herokuapp.com/api/teams>
+
 #### Sign Up
 
 ```
