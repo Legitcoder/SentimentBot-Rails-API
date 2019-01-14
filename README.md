@@ -122,6 +122,21 @@ Note: Question is optional for now because MVP will
 simple ask "How do you feel?", however the field is
 present for future feature expansion
 
+
+#### Update Survey
+
+```
+PUT api/surveys/:id
+```
+Request Body:
+
+```
+{ schedule: string }
+```
+
+Note: This is what will trigger the change in notification 
+whether that be daily,weekly, or monthly.
+
 #### Get Team's Surveys
 
 ```

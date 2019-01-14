@@ -15,8 +15,17 @@ class Api::SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
   end
 
+  #This triggers the change of schedule
   def update
-
+    @survey = Survey.find(params[:id])
+    newSchedule = params[:schedule]
+    @survey.schedule = newSchedule
+    if @survey.save
+      render :ok, json: { survey: @survey }
+    else
+      @errors = @survey.errors.full_messages
+      render json: { message: @errors }, status: :unprocessable_entity
+    end
   end
 
   def create
