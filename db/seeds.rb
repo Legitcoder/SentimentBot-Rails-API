@@ -57,7 +57,7 @@ end
 responses = []
 
 for _ in 0..400
-  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: surveys.sample, user: users.sample, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image)
+  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: surveys.sample, user: users.sample, longitude: -73.935242, latitude: 40.730610, date: Faker::Date.backward(100), image_url: Faker::Avatar.image)
   responses << response
   response.save()
 end

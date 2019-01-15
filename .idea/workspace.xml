@@ -97,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="502">
-              <caret line="59" column="255" selection-start-line="59" selection-start-column="255" selection-end-line="59" selection-end-column="255" />
+              <caret line="59" column="141" selection-start-line="59" selection-start-column="141" selection-end-line="59" selection-end-column="141" />
             </state>
           </provider>
         </entry>
@@ -452,15 +452,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547258598575</updated>
-      <workItem from="1547258599845" duration="52552000" />
+      <workItem from="1547258599845" duration="53141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52552000" />
+    <option name="totallyTimeSpent" value="53141000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="388" y="1103" width="1440" height="877" extended-state="6" />
+    <frame x="387" y="1103" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -815,7 +815,7 @@
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="502">
-          <caret line="59" column="255" selection-start-line="59" selection-start-column="255" selection-end-line="59" selection-end-column="255" />
+          <caret line="59" column="141" selection-start-line="59" selection-start-column="141" selection-end-line="59" selection-end-column="141" />
         </state>
       </provider>
     </entry>
