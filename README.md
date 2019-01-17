@@ -28,7 +28,8 @@ Request Body:
 { email: String, password: String }
 ```
 
-## Every Endpoint Below Requires JWT token in Authorization Header 
+## Every Endpoint Below Requires JWT token in Authorization Header(Note JWT Disabled to test routes)
+
 
 #### Get User
 
@@ -57,6 +58,9 @@ Request Body:
 { code: Integer }
 ```
 
+Note: This will work without JWT because backend uses JWT to get current_user 
+through jwt token. 
+
 #### Create a Response(Feelzy)
 
 ```
@@ -83,7 +87,7 @@ this will not work and needs to fixed. Longitude and Latitude is only required f
 #### Create a Team
 
 ```
-POST api/teams
+POST api/users/:userId/teams
 ```
 Request Body:
 

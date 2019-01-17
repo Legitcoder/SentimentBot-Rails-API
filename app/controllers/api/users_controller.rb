@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
       @user =  User.find(current_user.id)
       @team.users << @user
       @user.is_admin = false
-      render :ok, json: { team: @team }
+      render :ok, json: {id: @team.id, teamName: @team.team_name,  code: @team.code, users: @team.users}
     end
 
     if !@team

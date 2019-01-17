@@ -17,12 +17,13 @@ class Api::TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    @team.user = current_user
+    debugger
+    @team.user = User.find(params[:user_id])
     @user = @team.user
     @user.is_admin = true
     @user.save
     if @team.save
-      render :ok, json: {team: @team}
+      render :ok, json: {id: @team.id, team_name: @team.team_name,  code: @team.code, user: @user}
     else
       @errors = @team.errors.full_messages
       render json: { message: @errors }, status: :unprocessable_entity
