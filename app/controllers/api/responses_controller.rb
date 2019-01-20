@@ -1,6 +1,6 @@
 class Api::ResponsesController < ApplicationController
 
-  #before_action :verify_jwt_token
+  before_action :verify_jwt_token
 
   def index
     if params[:user_id].present?
@@ -16,7 +16,6 @@ class Api::ResponsesController < ApplicationController
     if params[:id].present?
       @responses = Response.all
     end
-
   end
 
   #Create a response(feelzy)
@@ -33,6 +32,8 @@ class Api::ResponsesController < ApplicationController
     end
   end
 
+
+  #Delete a response(feelzy)
   def destroy
     @response = Response.find(params[:id])
     if @response.destroy

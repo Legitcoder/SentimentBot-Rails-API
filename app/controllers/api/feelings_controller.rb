@@ -1,6 +1,6 @@
 class Api::FeelingsController < ApplicationController
 
-  #before_action :verify_jwt_token
+  before_action :verify_jwt_token
 
 
   def index

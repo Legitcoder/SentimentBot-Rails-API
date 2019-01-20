@@ -21,3 +21,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore Stripe Keys
+/config/initializers/stripe.rb

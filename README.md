@@ -43,7 +43,7 @@ Request Body:
 ```
 
 Note: This endpoint should be used after logging in and decoding the JWT
-token to get the userId to retrieve all user attributes. 
+token in the front end to get the userId to retrieve all user attributes. 
 
 ### User Endpoints 
 
@@ -56,10 +56,7 @@ Request Body:
 
 ```
 { code: Integer }
-```
-
-Note: This will work without JWT because backend uses JWT to get current_user 
-through jwt token. 
+``` 
 
 #### Create a Response(Feelzy)
 

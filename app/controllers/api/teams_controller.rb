@@ -1,11 +1,12 @@
 class Api::TeamsController < ApplicationController
 
-  #before_action :verify_jwt_token, except: [:index]
+  before_action :verify_jwt_token, except: [:index]
 
   def index
     if params[:user_id].present?
       @user = User.find(params[:user_id])
       @teams = @user.teams
+      render json: @teams.first.to_json
     else
       @teams = Team.all
     end
@@ -23,7 +24,7 @@ class Api::TeamsController < ApplicationController
     @user.is_admin = true
     @user.save
     if @team.save
-      render :ok, json: {id: @team.id, team_name: @team.team_name,  code: @team.code, user: @user}
+      render :ok, json: @team.to_json
     else
       @errors = @team.errors.full_messages
       render json: { message: @errors }, status: :unprocessable_entity
