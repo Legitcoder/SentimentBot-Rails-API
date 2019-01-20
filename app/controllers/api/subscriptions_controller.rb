@@ -14,7 +14,11 @@ class Api::SubscriptionsController < ApplicationController
 
   #Create Subscription
   def create
-
+    #@user = current_user
+    customer = Stripe::Customer.create(description: 'test@test.com', plan: 'plan_ENJE6m4Jq7vJNz', card: params[:card_token])
+    if customer
+      render :ok, json: {customer: customer}
+    end
   end
 
 end
