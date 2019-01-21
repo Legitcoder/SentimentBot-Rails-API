@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  before_action :verify_jwt_token, except: [:create]
+  #before_action :verify_jwt_token, except: [:create, :oauth]
 
   def index
     if params[:team_id].present?
@@ -14,9 +14,19 @@ class Api::UsersController < ApplicationController
   def oauth
     @user = User.find_by(email: params[:email])
     if @user
-
+      render json: {
+          jwt: AuthenticationHelper.issue_token({id: @user.id})
+      }
     else
-      @user = User.create(first_name: params[:first_name], last_name: params[:last_name])
+      @user = User.create(user_params)
+      if @user.save
+        render json: {
+            jwt: AuthenticationHelper.issue_token({id: @user.id})
+        }
+      else
+        @errors = @user.errors.full_messages
+        render json: { message: @errors }, status: :unauthorized
+      end
     end
 
   end

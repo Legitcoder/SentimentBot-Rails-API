@@ -7,7 +7,7 @@ class Api::TokensController < ApplicationController
           jwt: AuthenticationHelper.issue_token({id: @user.id})
       }
     else
-      head :not_found
+      render json: { message: ["Email or Password is Invalid"] }, status: :not_found
     end
   end
 
