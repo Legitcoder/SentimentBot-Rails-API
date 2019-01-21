@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  #before_action :verify_jwt_token, except: [:create, :oauth]
+  before_action :verify_jwt_token, except: [:create, :oauth]
 
   def index
     if params[:team_id].present?
@@ -19,6 +19,7 @@ class Api::UsersController < ApplicationController
       }
     else
       @user = User.create(user_params)
+      @user.password_digest = SecureRandom::urlsafe_base64
       if @user.save
         render json: {
             jwt: AuthenticationHelper.issue_token({id: @user.id})
