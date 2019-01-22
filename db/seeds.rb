@@ -53,8 +53,13 @@ end
 
 users = []
 
-scott = User.create(team: teams.sample, first_name: "Scott", last_name: "Bennet", email: "scott@scott.com", password: "123456", is_admin: false, is_team_member: true, phone: Faker::PhoneNumber.phone_number, image_url: Faker::Avatar.image)
+scott = User.create(team: moinsTeam, first_name: "Scott", last_name: "Bennet", email: "scott@scott.com", password: "123456", is_admin: false, is_team_member: true, phone: Faker::PhoneNumber.phone_number, image_url: Faker::Avatar.image)
+scott.save()
 
+for _ in 0 ..10
+  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: moinSurvey, user: scott, longitude: -73.935242, latitude: 40.730610, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
+  response.save()
+end
 for _ in 0..200
   user = User.create(team: teams.sample, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Lorem.word, is_admin: false, is_team_member: true, phone: Faker::PhoneNumber.phone_number, image_url: Faker::Avatar.image)
   users << user
