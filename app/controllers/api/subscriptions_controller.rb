@@ -27,7 +27,7 @@ class Api::SubscriptionsController < ApplicationController
   #Cancel subscription at the end of the billing period
   def cancel
     @user = current_user
-    subscription = Stripe::Subscription.retrieve('sub_49ty4767H20z6a')
+    subscription = Stripe::Subscription.retrieve('sub_EODDMtBbJuCEcr')
     subscription.cancel_at_period_end = true
     @user.subscribed = false
     if subscription.save && @user.save

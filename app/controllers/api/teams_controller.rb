@@ -6,8 +6,7 @@ class Api::TeamsController < ApplicationController
     if params[:user_id].present?
       @user = User.find(params[:user_id])
       @teams = @user.teams
-      #Refactor this one day
-      render json: @teams.to_json(include: {users: { only: [:id, :first_name, :last_name, :team_id, :image_url, :subscribed] } })
+      @teams
     else
       @teams = Team.all
     end

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-emojis = ['😄','😃','😀','😊','😉','😍','😘','😚','😗','😙','😜','😝','😛','😳','😁','😔','😌','😒','😞','😣','😢','😂','😭','😪','😥','😰','😅','😓','😩','😫','😨','😱','😠','😡','😤','😖','😆','😋','😷','😎','😴','😵','😲','😟','😦','😧','😮','😬','😐','😕','😯','😶','😇','😏','😑']
+emojis = ["😄" ,"😃","😢","😊","😞", "😡"]
 
 moin = User.create(email: "moin@moin.com", first_name: "moin", last_name: "uddin", is_admin: true, password: "123456", phone: "123-456-7890")
 
@@ -24,6 +24,15 @@ end
 teams = []
 
 moinsTeam = Team.create(team_name: "Moin's team", user: moin)
+
+moinSurvey = Survey.find_by(team_id: moinsTeam.id)
+
+for _ in 0..5
+  feeling = Feeling.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: moinSurvey)
+end
+
+moinSurvey.save()
+
 teams << moinsTeam
 moin.save()
 
@@ -52,7 +61,7 @@ end
 
 feelings = []
 
-for _ in 0..20
+for _ in 0..50
   feeling = Feeling.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: surveys.sample)
   feelings << feeling
   feeling.save()

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     post 'oauth' => "users#oauth"
     post 'join' => "users#join"
     post 'stripe' => "subscriptions#stripe"
+    delete 'subscriptions' => "subscriptions#cancel"
 
     resources :subscriptions
 

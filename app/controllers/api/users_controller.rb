@@ -47,6 +47,7 @@ class Api::UsersController < ApplicationController
       @user =  User.find(current_user.id)
       @team.users << @user
       @user.is_admin = false
+      @user.is_team_member = true
       render :ok, json: @team.to_json
     end
 
@@ -85,17 +86,18 @@ class Api::UsersController < ApplicationController
   end
 
 
-  #Handle both deleting account and only removing user from team
+  #Handle both deleting account and only removing user from team/leaving team
   def destroy
-    @team = Team.find(params[:team_id])
-    if @team
+    if params[:team_id].present?
       #Only delete from team
+      @team = Team.find(params[:team_id])
       @user = User.find(params[:id])
       @team.users.delete(@user)
-      if !@team.users.contains(@user)
+      @user.is_team_member = false
+      if @user.save
         render :ok, json: { user: @user }
       else
-        render json: { message: "User couldn't be removed from team, Please Try again!" }, status: :unprocessable_entity
+        render json: { message: ["User couldn't be removed from team, Please Try again!"] }, status: :unprocessable_entity
       end
     else
       #Delete account
