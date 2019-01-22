@@ -53,8 +53,10 @@ end
 
 users = []
 
+scott = User.create(team: teams.sample, first_name: "Scott", last_name: "Bennet", email: "scott@scott.com", password: "123456", is_admin: false, is_team_member: true, phone: Faker::PhoneNumber.phone_number, image_url: Faker::Avatar.image)
+
 for _ in 0..200
-  user = User.create(team: teams.sample, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Lorem.word, is_admin: false, phone: Faker::PhoneNumber.phone_number, image_url: Faker::Avatar.image)
+  user = User.create(team: teams.sample, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Lorem.word, is_admin: false, is_team_member: true, phone: Faker::PhoneNumber.phone_number, image_url: Faker::Avatar.image)
   users << user
   user.save()
 end

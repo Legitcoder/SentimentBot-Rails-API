@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_065501) do
+ActiveRecord::Schema.define(version: 2019_01_22_155455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_01_22_065501) do
     t.string "phone"
     t.boolean "subscribed", default: false
     t.boolean "is_team_member", default: false
+    t.string "subscription"
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 
