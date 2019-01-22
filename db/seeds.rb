@@ -9,7 +9,7 @@
 emojis = ['😄','😃','😀','😊','😉','😍','😘','😚','😗','😙','😜','😝','😛','😳','😁','😔','😌','😒','😞','😣','😢','😂','😭','😪','😥','😰','😅','😓','😩','😫','😨','😱','😠','😡','😤','😖','😆','😋','😷','😎','😴','😵','😲','😟','😦','😧','😮','😬','😐','😕','😯','😶','😇','😏','😑']
 
 moin = User.create(email: "moin@moin.com", first_name: "moin", last_name: "uddin", is_admin: true, password: "123456", phone: "123-456-7890")
-moin.save()
+
 
 triggers = ["daily", "weekly", "monthly"]
 
@@ -22,6 +22,10 @@ for _ in 0..10
 end
 
 teams = []
+
+moinsTeam = Team.create(team_name: "Moin's team", user: moin)
+teams << moinsTeam
+moin.save()
 
 for _ in 0..20
   team = Team.create(team_name: Faker::Lorem.word, user: managers.sample)
@@ -57,7 +61,7 @@ end
 responses = []
 
 for _ in 0..400
-  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: surveys.sample, user: users.sample, longitude: -73.935242, latitude: 40.730610, date: Faker::Date.backward(100), image_url: Faker::Avatar.image)
+  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: surveys.sample, user: users.sample, longitude: -73.935242, latitude: 40.730610, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
   responses << response
   response.save()
 end

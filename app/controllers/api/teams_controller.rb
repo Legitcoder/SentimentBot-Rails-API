@@ -6,7 +6,8 @@ class Api::TeamsController < ApplicationController
     if params[:user_id].present?
       @user = User.find(params[:user_id])
       @teams = @user.teams
-      render json: @teams.first.to_json
+      #Refactor this one day
+      render json: @teams.to_json(include: {users: { only: [:id, :first_name, :last_name, :team_id, :image_url, :subscribed] } })
     else
       @teams = Team.all
     end
@@ -18,7 +19,6 @@ class Api::TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    debugger
     @team.user = User.find(params[:user_id])
     @user = @team.user
     @user.is_admin = true

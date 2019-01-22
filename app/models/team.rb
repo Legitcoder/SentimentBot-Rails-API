@@ -6,8 +6,14 @@ class Team < ApplicationRecord
 
   before_validation :set_code
 
+  after_save :create_survey
+
   def self.generate_code
     rand.to_s[2..6]
+  end
+
+  def create_survey
+    Survey.create(schedule: "daily", team_id: self.id)
   end
 
   def set_code

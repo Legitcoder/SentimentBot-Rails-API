@@ -45,6 +45,6 @@ class Api::ResponsesController < ApplicationController
   end
 
   def response_params
-    params.permit(:mood, :emoji, :longitude, :latitude, :date, :image_url)
+    params.permit(:mood, :emoji, :longitude, :latitude, :date, :image_url, :place)
   end
 end

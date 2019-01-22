@@ -29,7 +29,7 @@ class Api::FeelingsController < ApplicationController
     end
 
     if !@survey
-      render json: {message: "Survey is Required!" }, status: :unprocessable_entity
+      render json: {message: ["Survey is Required!"] }, status: :unprocessable_entity
     end
   end
 
