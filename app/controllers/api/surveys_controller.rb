@@ -31,7 +31,6 @@ class Api::SurveysController < ApplicationController
 
     notification = Rpush::Apns::Notification.new
     notification.app = Rpush::Apnsp8::App.find_by_name("dude-Bot")
-    debugger
     notification.device_token = device_token
     notification.alert = "hi mom!"
     notification.data = { foo: :bar }
