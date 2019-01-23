@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00f0ccc4-a0bf-44f1-b157-70b3cbddd69f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/initializers/rpush.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222104_add_rpush.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222105_rpush_2_0_0_updates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222106_rpush_2_1_0_updates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222107_rpush_2_6_0_updates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222108_rpush_2_7_0_updates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222109_rpush_3_0_0_updates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222110_rpush_3_0_1_updates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222111_rpush_3_1_0_add_pushy.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222112_rpush_3_1_1_updates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222113_rpush_3_2_0_add_apns_p8.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222114_rpush_3_2_4_updates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222115_rpush_3_3_0_updates.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20190123222116_rpush_3_3_1_updates.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SentimentBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SentimentBot.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/surveys_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/surveys_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+            <state relative-caret-position="242">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -240,6 +224,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/app/views/api/surveys" />
       <recent name="$PROJECT_DIR$/app/controllers/api" />
     </key>
@@ -369,7 +354,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96586000" />
+    <option name="totallyTimeSpent" value="96833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="405" y="1103" width="1405" height="877" extended-state="0" />
@@ -724,8 +709,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        <state relative-caret-position="242">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>

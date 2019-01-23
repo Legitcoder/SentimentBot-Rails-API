@@ -18,6 +18,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'faker'
 gem 'stripe'
+gem 'geocoder'
 gem 'cloudinary'
 gem 'rpush'
 # Use ActiveStorage variant
