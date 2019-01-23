@@ -18,16 +18,16 @@ class Api::SurveysController < ApplicationController
   #This triggers the change of schedule
   def update
     device_token = params[:device_token]
-    app = Rpush::Apnsp8::App.new
-    app.name = "dude-Bot"
-    file = File.join(Rails.root, 'app', 'config', 'AuthKey_U4TBQWBRJD.p8')
-    app.apn_key = file
-    app.environment = "development" # APNs environment.
-    app.apn_key_id = "U4TBQWBRJD"
-    app.team_id = "5KBWP959TD"
-    app.bundle_id = "com.expertservices.Sentiment-Bot"
-    app.connections = 1
-    app.save!
+    # app = Rpush::Apnsp8::App.new
+    # app.name = "dude-Bot"
+    # file = File.join(Rails.root, 'app', 'config', 'AuthKey_U4TBQWBRJD.p8')
+    # app.apn_key = file
+    # app.environment = "development" # APNs environment.
+    # app.apn_key_id = "U4TBQWBRJD"
+    # app.team_id = "5KBWP959TD"
+    # app.bundle_id = "com.expertservices.Sentiment-Bot"
+    # app.connections = 1
+    # app.save!
 
     notification = Rpush::Apns::Notification.new
     notification.app = Rpush::Apnsp8::App.find_by_name("dude-Bot")
