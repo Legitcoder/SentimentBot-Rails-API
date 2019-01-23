@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00f0ccc4-a0bf-44f1-b157-70b3cbddd69f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
-    </list>
+    <list default="true" id="00f0ccc4-a0bf-44f1-b157-70b3cbddd69f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="59" column="179" selection-start-line="59" selection-start-column="179" selection-end-line="59" selection-end-column="179" />
+            <state relative-caret-position="514">
+              <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -413,12 +410,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547258598575</updated>
-      <workItem from="1547258599845" duration="93156000" />
+      <workItem from="1547258599845" duration="93551000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93156000" />
+    <option name="totallyTimeSpent" value="93551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="356" y="1103" width="1462" height="877" extended-state="0" />
@@ -779,8 +776,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="59" column="179" selection-start-line="59" selection-start-column="179" selection-end-line="59" selection-end-column="179" />
+        <state relative-caret-position="514">
+          <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
         </state>
       </provider>
     </entry>
