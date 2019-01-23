@@ -33,6 +33,12 @@ class Api::ResponsesController < ApplicationController
   end
 
 
+  #Upload image_url will be implemented here for selfie
+  def update
+
+  end
+
+
   #Delete a response(feelzy)
   def destroy
     @response = Response.find(params[:id])

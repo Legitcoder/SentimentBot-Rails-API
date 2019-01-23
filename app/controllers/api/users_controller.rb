@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  before_action :verify_jwt_token, except: [:create, :oauth]
+  before_action :verify_jwt_token, except: [:create, :oauth, :upload]
 
   def index
     if params[:team_id].present?
@@ -33,7 +33,25 @@ class Api::UsersController < ApplicationController
   end
 
   def upload
-
+    file = Tempfile.new('foo')
+    base64 = Base64.decode64(params[:image].tr(' ', '+'))
+    image = StringIO.new(base64)
+    image.class.class_eval { attr_accessor :original_filename, :content_type }
+    image.original_filename = SecureRandom.hex + '.png'
+    image.content_type = 'image/png'
+    File.open(file, 'wb') do|f|
+      f.write(base64)
+    end
+    cloudinary = Cloudinary::Uploader.upload(file)
+    image_url = cloudinary["url"]
+    @user = current_user
+    @user.image_url = image_url
+    if @user.save
+      render :ok, json: {image_url: image_url}
+    else
+      @errors = @user.errors.full_messages
+      render json: { message: @errors }, status: :unprocessable_entity
+    end
   end
 
 

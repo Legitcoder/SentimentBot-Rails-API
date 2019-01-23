@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     post 'stripe' => "subscriptions#stripe"
     delete 'subscriptions' => "subscriptions#cancel"
 
+    post 'upload' => "users#upload"
+
     resources :subscriptions
 
     resources :users do
