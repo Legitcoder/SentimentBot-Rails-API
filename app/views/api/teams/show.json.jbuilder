@@ -1,1 +1,1 @@
-json.(@team, :id, :code, :team_name, :team_code, :surveys, :users, :responses)
+json.(@team, :id, :team_name, :code, :surveys, :users, :responses)

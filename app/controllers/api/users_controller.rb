@@ -66,11 +66,16 @@ class Api::UsersController < ApplicationController
       @team.users << @user
       @user.is_admin = false
       @user.is_team_member = true
-      render :ok, json: @team.to_json
+      if @user.save
+        render "api/teams/join", status: :ok
+      else
+        @errors = @user.errors.full_messages
+        render json: { message: @errors }, status: :unprocessable_entity
+      end
     end
 
     if !@team
-      render json: {message: "Invalid Code" }, status: :unprocessable_entity
+      render json: {message: ["Invalid Code"] }, status: :unprocessable_entity
     end
 
   end
