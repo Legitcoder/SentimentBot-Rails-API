@@ -19,6 +19,7 @@ gem 'jwt'
 gem 'faker'
 gem 'stripe'
 gem 'cloudinary'
+gem 'geocoder'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
