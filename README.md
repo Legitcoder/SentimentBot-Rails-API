@@ -28,7 +28,7 @@ Request Body:
 { email: String, password: String }
 ```
 
-## Every Endpoint Below Requires JWT token in Authorization Header(Note JWT Disabled to test routes)
+## Every Endpoint Below Requires JWT token in Authorization Header
 
 
 #### Get User
