@@ -20,7 +20,7 @@ gem 'faker'
 gem 'stripe'
 gem 'cloudinary'
 gem 'geocoder'
-
+gem 'houston'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

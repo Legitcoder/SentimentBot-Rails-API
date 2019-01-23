@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dg3xzcms5
+  api_key: '377921355356242'
+  api_secret: xQl-bIOwFkFl5w16e7SUfuSx5KQ
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dg3xzcms5
+  api_key: '377921355356242'
+  api_secret: xQl-bIOwFkFl5w16e7SUfuSx5KQ
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dg3xzcms5
+  api_key: '377921355356242'
+  api_secret: xQl-bIOwFkFl5w16e7SUfuSx5KQ
+  enhance_image_tag: true
+  static_file_support: false

@@ -52,6 +52,8 @@ GEM
     cloudinary (1.11.1)
       aws_cf_signer
       rest-client
+    commander (4.4.7)
+      highline (~> 2.0.0)
     concurrent-ruby (1.1.4)
     connection_pool (2.2.2)
     crass (1.0.4)
@@ -66,6 +68,10 @@ GEM
     geocoder (1.5.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    highline (2.0.0)
+    houston (2.4.0)
+      commander (~> 4.4)
+      json
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.5.1)
@@ -73,6 +79,7 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.1.0)
     jwt (2.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -177,6 +184,7 @@ DEPENDENCIES
   cloudinary
   faker
   geocoder
+  houston
   jbuilder (~> 2.5)
   jwt
   listen (>= 3.0.5, < 3.2)
