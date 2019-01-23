@@ -57,7 +57,8 @@ scott = User.create(team: moinsTeam, first_name: "Scott", last_name: "Bennet", e
 scott.save()
 
 for _ in 0 ..10
-  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: moinSurvey, user: scott, longitude: -73.935242, latitude: 40.730610, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
+  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: moinSurvey, user: scott, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
+  
   response.save()
 end
 for _ in 0..200
