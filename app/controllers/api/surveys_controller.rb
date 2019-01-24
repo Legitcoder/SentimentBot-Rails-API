@@ -22,7 +22,7 @@ class Api::SurveysController < ApplicationController
     team_members = @survey.team.users
 
     team_members.each do |team_member|
-      if team_member.device_token != ""
+      if !team_member.device_token || team_member.device_token != ""
         notification = Rpush::Apns::Notification.new
         notification.app = Rpush::Apnsp8::App.find_by_name("new-sent-Bot")
         notification.device_token = team_member.device_token
