@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00f0ccc4-a0bf-44f1-b157-70b3cbddd69f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/surveys_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/surveys_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/users_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/response.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/response.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/response.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
-              <caret line="4" selection-start-line="4" selection-end-line="14" selection-end-column="37" />
+              <caret line="4" selection-start-line="4" selection-end-line="14" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -53,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/surveys_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+            <state relative-caret-position="396">
+              <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -165,9 +160,9 @@
         <option value="$PROJECT_DIR$/app/controllers/api/responses_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20190124061856_add_device_token_to_users.rb" />
-        <option value="$PROJECT_DIR$/app/models/response.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api/surveys_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/response.rb" />
       </list>
     </option>
   </component>
@@ -401,7 +396,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112090000" />
+    <option name="totallyTimeSpent" value="112247000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="436" y="1103" width="1405" height="877" extended-state="0" />
@@ -726,13 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/response.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" selection-start-line="4" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
@@ -756,8 +744,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/surveys_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+        <state relative-caret-position="396">
+          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/response.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="14" selection-end-column="35" />
         </state>
       </provider>
     </entry>
