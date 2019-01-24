@@ -78,7 +78,7 @@ end
 responses = []
 
 for _ in 0..200
-  response = Response.create(skip_reverse_geocode: true, mood: Faker::Lorem.word, emoji: emojis.sample, survey: surveys.sample, user: users.sample, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
+  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: surveys.sample, user: users.sample, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
   responses << response
   response.save()
 end
