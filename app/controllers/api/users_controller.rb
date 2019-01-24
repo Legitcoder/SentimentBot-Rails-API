@@ -55,10 +55,8 @@ class Api::UsersController < ApplicationController
   end
 
   def save_device_token
-    debugger
     @user = User.find(params[:id])
     @user.device_token = params[:device_token]
-    debugger
     if @user.save
       render :ok, json: {}
     else
