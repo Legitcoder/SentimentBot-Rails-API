@@ -2,6 +2,8 @@ class Response < ApplicationRecord
   belongs_to :survey, optional: true
   belongs_to :user
 
+  attr_accessor :skip_reverse_geocode
+
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     if geo = results.first
       if geo.data["error"] != "Unable to geocode"
@@ -13,4 +15,5 @@ class Response < ApplicationRecord
   end
 
   after_validation :reverse_geocode
+
 end
