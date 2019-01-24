@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
     post 'upload' => "users#upload"
 
+    post 'saveDeviceToken' => "users#save_device_token"
+
     resources :subscriptions
 
     resources :users do

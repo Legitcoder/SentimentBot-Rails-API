@@ -19,13 +19,18 @@ class Api::SurveysController < ApplicationController
   def update
     @survey = Survey.find(params[:id])
 
-    device_token = params[:device_token]
-    notification = Rpush::Apns::Notification.new
-    notification.app = Rpush::Apnsp8::App.find_by_name("moin-sentiment-bot-3")
-    notification.device_token = device_token
-    notification.data = { aps: { "content-available": 1 }, schedule: params[:schedule], time: Time.now, feelings: @survey.feelings, surveyId: @survey.id }
-    notification.save!
-    Rpush.push
+    team_members = @survey.team.users
+
+    team_members.each do |team_member|
+      if team_member.device_token != ""
+        notification = Rpush::Apns::Notification.new
+        notification.app = Rpush::Apnsp8::App.find_by_name("new-sent-Bot")
+        notification.device_token = team_member.device_token
+        notification.data = { aps: { "content-available": 1 }, schedule: params[:schedule], time: Time.now, feelings: @survey.feelings, surveyId: @survey.id }
+        notification.save!
+        Rpush.push
+      end
+    end
 
     newSchedule = params[:schedule]
     @survey.schedule = newSchedule
