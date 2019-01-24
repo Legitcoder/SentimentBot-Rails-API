@@ -21,11 +21,28 @@ class Api::ResponsesController < ApplicationController
   #Create a response(feelzy)
   def create
     @user = User.find(params[:user_id])
-    @response = Response.new(response_params)
-    @response.date = Time.new
+    date = Date.parse(params[:date])
+    dateString = date.strftime('%a %d %b %Y')
+    @response = Response.new(longitude: params[:longitude],
+                             latitude: params[:latitude],
+                             mood: params[:mood],
+                             emoji: params[:emoji],
+                             user_id: params[:user_id],
+                             survey_id: params[:survey_id]
+    )
+    @response.date = date
     @user.responses << @response
     if @response.save
-      render :ok, json: {response: @response}
+      render :ok, json: {id: @response.id,
+                         date: dateString,
+                         longitude: @response.longitude,
+                         latitude: @response.latitude,
+                         mood: @response.mood,
+                         emoji: @response.emoji,
+                         userId: @response.user_id,
+                         surveyId: @response.survey_id,
+                         place: @response.place
+      }
     else
       @errors = @response.errors.full_message
       render json: { message: @errors }, status: :unprocessable_entity
@@ -51,6 +68,6 @@ class Api::ResponsesController < ApplicationController
   end
 
   def response_params
-    params.permit(:mood, :emoji, :longitude, :latitude, :date, :image_url, :place)
+    params.permit(:id, :mood, :emoji, :longitude, :latitude, :date, :image_url, :place, :user_id, :team_id)
   end
 end

@@ -54,6 +54,17 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def save_device_token
+    @user = params[:id]
+    @user.device_token = params[:device_token]
+    if @user.save
+      render :ok, json: {}
+    else
+      @errors = @user.errors.full_messages
+      render json: { message: @errors }, status: :unprocessable_entity
+    end
+  end
+
 
   def show
     @user = User.find(params[:id])
