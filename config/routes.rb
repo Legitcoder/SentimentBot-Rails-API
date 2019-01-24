@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     delete 'subscriptions' => "subscriptions#cancel"
 
     post 'upload' => "users#upload"
-
+    post 'upload_response_image' => "responses#upload_response_image"
     post 'saveDeviceToken' => "users#save_device_token"
 
     resources :subscriptions
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
     resources :responses
     resources :feelings
+
     resources :teams do
       resources :users, only: [:index, :create, :update, :destroy]
       resources :responses

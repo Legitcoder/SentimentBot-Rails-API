@@ -51,8 +51,27 @@ class Api::ResponsesController < ApplicationController
 
 
   #Upload image_url will be implemented here for selfie
-  def update
-
+  def upload_response_image
+    @response = Response.find(params[:responseId])
+    file = Tempfile.new('foo')
+    base64 = Base64.decode64(params[:image].tr(' ', '+'))
+    image = StringIO.new(base64)
+    image.class.class_eval { attr_accessor :original_filename, :content_type }
+    image.original_filename = SecureRandom.hex + '.png'
+    image.content_type = 'image/png'
+    File.open(file, 'wb') do|f|
+      f.write(base64)
+    end
+    debugger
+    cloudinary = Cloudinary::Uploader.upload(file)
+    image_url = cloudinary["url"]
+    @response.image_url = image_url
+    if @response.save
+      render :ok, json: {image_url: image_url}
+    else
+      @errors = @response.errors.full_messages
+      render json: { message: @errors }, status: :unprocessable_entity
+    end
   end
 
 
