@@ -18,13 +18,25 @@ class Api::SurveysController < ApplicationController
   #This triggers the change of schedule
   def update
     @survey = Survey.find(params[:id])
+    randomString = SecureRandom.hex
+    device_token = params[:device_token]
+    app = Rpush::Apnsp8::App.new
+    app.name = randomString
+    file = File.join(Rails.root, 'app', 'AuthKey_U4TBQWBRJD.p8')
+    app.apn_key = File.read(file)
+    app.environment = "development" # APNs environment.
+    app.apn_key_id = "U4TBQWBRJD"
+    app.team_id = "5KBWP959TD"
+    app.bundle_id = "com.expertservices.Sentiment-Bot"
+    app.connections = 1
+    app.save!
 
     team_members = @survey.team.users
 
     team_members.each do |team_member|
       if team_member.device_token != ""
         notification = Rpush::Apns::Notification.new
-        notification.app = Rpush::Apnsp8::App.find_by_name("new-sent-Bot")
+        notification.app = Rpush::Apnsp8::App.find_by_name(randomString)
         notification.device_token = team_member.device_token
         notification.data = { aps: { "content-available": 1 }, schedule: params[:schedule], time: Time.now, feelings: @survey.feelings, surveyId: @survey.id }
         notification.save!
