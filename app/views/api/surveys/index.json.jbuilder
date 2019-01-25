@@ -1,1 +1,1 @@
-json.array! @surveys, :id, :schedule, :feelings
+json.array! @surveys, :id, :schedule, :feelings, :time

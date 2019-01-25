@@ -17,9 +17,9 @@ class Api::SurveysController < ApplicationController
 
   #This triggers the change of schedule
   def update
+
     @survey = Survey.find(params[:id])
     randomString = SecureRandom.hex
-    device_token = params[:device_token]
     app = Rpush::Apnsp8::App.new
     app.name = randomString
     file = File.join(Rails.root, 'app', 'AuthKey_U4TBQWBRJD.p8')
@@ -31,6 +31,9 @@ class Api::SurveysController < ApplicationController
     app.connections = 1
     app.save!
 
+    time = params[:time]
+    newSchedule = params[:schedule]
+
     team_members = @survey.team.users
 
     team_members.each do |team_member|
@@ -38,14 +41,14 @@ class Api::SurveysController < ApplicationController
         notification = Rpush::Apns::Notification.new
         notification.app = Rpush::Apnsp8::App.find_by_name(randomString)
         notification.device_token = team_member.device_token
-        notification.data = { aps: { "content-available": 1 }, schedule: params[:schedule], time: Time.now, feelings: @survey.feelings, surveyId: @survey.id }
+        notification.data = { aps: { "content-available": 1 }, schedule: newSchedule, time: time, feelings: @survey.feelings, surveyId: @survey.id }
         notification.save!
         Rpush.push
       end
     end
 
-    newSchedule = params[:schedule]
     @survey.schedule = newSchedule
+    @survey.time = time
     if @survey.save
       render :ok, json: { survey: @survey }
     else

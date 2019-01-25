@@ -1,1 +1,1 @@
-json.(@survey, :id, :schedule, :feelings)
+json.(@survey, :id, :schedule, :feelings, :time)

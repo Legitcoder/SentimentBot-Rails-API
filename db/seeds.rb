@@ -45,8 +45,8 @@ end
 
 surveys = []
 
-for _ in 0..200
-  survey = Survey.create(schedule: triggers.sample, team: teams.sample, question: Faker::Lorem.sentence)
+for _ in 0..50
+  survey = Survey.create(schedule: triggers.sample, time: "14:00", team: teams.sample, question: Faker::Lorem.sentence)
   surveys << survey
   survey.save()
 end
@@ -57,7 +57,7 @@ scott = User.create(team: moinsTeam, first_name: "Scott", last_name: "Bennet", e
 scott.save()
 
 for _ in 0 ..10
-  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: moinSurvey, user: scott, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image)
+  response = Response.create(mood: Faker::Lorem.word, emoji: emojis.sample, survey: moinSurvey, user: scott, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
 
   response.save()
 end

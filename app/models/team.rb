@@ -13,7 +13,7 @@ class Team < ApplicationRecord
   end
 
   def create_survey
-    Survey.create(schedule: "daily", team_id: self.id)
+    Survey.create(schedule: "daily", time: "14:00", team_id: self.id)
   end
 
   def set_code
