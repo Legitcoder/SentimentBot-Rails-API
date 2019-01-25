@@ -62,7 +62,6 @@ class Api::ResponsesController < ApplicationController
     File.open(file, 'wb') do|f|
       f.write(base64)
     end
-    debugger
     cloudinary = Cloudinary::Uploader.upload(file)
     image_url = cloudinary["url"]
     @response.image_url = image_url
