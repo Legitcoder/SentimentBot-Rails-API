@@ -22,7 +22,7 @@ class Api::FeelingsController < ApplicationController
     @survey.feelings << @feeling
 
     if @feeling.save
-      render :ok, json: {feeling: @feeling}
+      render :ok, json:  @feeling
     else
       @errors = @feelings.error.full_messages
       render json: {message: @errors}, status: :unprocessable_entity

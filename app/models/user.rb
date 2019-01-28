@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
 
   belongs_to :team, optional: true
-  has_many :teams
+  has_many :teams, dependent: :destroy
   has_many :users, through: :teams
-  has_many :responses
+  has_many :responses, dependent: :destroy
 end

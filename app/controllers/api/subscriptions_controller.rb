@@ -17,6 +17,7 @@ class Api::SubscriptionsController < ApplicationController
     @user = current_user
     customer = Stripe::Customer.create(description: @user.email, plan: 'plan_ENJE6m4Jq7vJNz', card: params[:card_token])
     @user.subscribed = true
+    @user.subscription = customer.subscriptions.data.first.id
     if customer.save && @user.save
       render :ok, json: {customer: customer}
     else
@@ -27,10 +28,12 @@ class Api::SubscriptionsController < ApplicationController
   #Cancel subscription at the end of the billing period
   def cancel
     @user = current_user
-    subscription = Stripe::Subscription.retrieve('sub_EODDMtBbJuCEcr')
-    subscription.cancel_at_period_end = true
+    sub = @user.subscription
+    subscription = Stripe::Subscription.retrieve(sub)
+    subscription.delete
     @user.subscribed = false
-    if subscription.save && @user.save
+    @user.subscription = nil
+    if @user.save
       render :ok, json: { message: ["Subscription will be canceled at the end of the billing period"] }
     else
       render json: { message: ["Stripe Customer couldn't be saved."] }, status: :unprocessable_entity

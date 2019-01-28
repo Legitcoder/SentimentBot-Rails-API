@@ -3,7 +3,6 @@ class Response < ApplicationRecord
   belongs_to :user
 
 
-
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     if geo = results.first
       if geo.data["error"] != "Unable to geocode"

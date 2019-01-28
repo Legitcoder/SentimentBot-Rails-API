@@ -5,16 +5,16 @@ class Api::ResponsesController < ApplicationController
   def index
     if params[:user_id].present?
       @user = User.find(params[:user_id])
-      @responses = @user.responses
+      @responses = @user.responses.order(:date)
     end
 
     if params[:team_id].present?
       @team = Team.find(params[:team_id])
-      @responses = @team.responses
+      @responses = @team.responses.order(:date)
     end
 
     if params[:id].present?
-      @responses = Response.all
+      @responses = Response.all.order(:date)
     end
   end
 
