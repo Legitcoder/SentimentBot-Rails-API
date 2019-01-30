@@ -17,6 +17,7 @@ class Api::SubscriptionsController < ApplicationController
     @user = current_user
     customer = Stripe::Customer.create(description: @user.email, plan: 'plan_ENJE6m4Jq7vJNz', card: params[:card_token])
     @user.subscribed = true
+    @user.subscribed = true
     @user.subscription = customer.subscriptions.data.first.id
     if customer.save && @user.save
       render :ok, json: {customer: customer}
