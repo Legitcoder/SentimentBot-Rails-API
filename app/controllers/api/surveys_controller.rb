@@ -17,7 +17,6 @@ class Api::SurveysController < ApplicationController
 
   #This triggers the change of schedule
   def update
-
     @survey = Survey.find(params[:id])
     random_string = SecureRandom.hex
     app = Rpush::Apnsp8::App.new
@@ -33,7 +32,8 @@ class Api::SurveysController < ApplicationController
 
     time = params[:time]
     new_schedule = params[:schedule]
-
+    #string_date = params[:start_date]
+    #start_date = Date.strptime(string_date, "%m/%d/%Y")
     team_members = @survey.team.users
 
     team_members.each do |team_member|
@@ -49,11 +49,16 @@ class Api::SurveysController < ApplicationController
 
     @survey.schedule = new_schedule
     @survey.time = time
-    if @survey.save
-      render :ok, json: @survey
+    #@survey.start_date = start_date
+    if @survey.schedule != "Now"
+      if @survey.save
+        render :ok, json: @survey
+      else
+        @errors = @survey.errors.full_messages
+        render json: { message: @errors }, status: :unprocessable_entity
+      end
     else
-      @errors = @survey.errors.full_messages
-      render json: { message: @errors }, status: :unprocessable_entity
+      render :ok, json: {}
     end
   end
 

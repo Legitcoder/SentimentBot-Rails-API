@@ -1,6 +1,6 @@
 class Api::ResponsesController < ApplicationController
 
-  before_action :verify_jwt_token
+  before_action :verify_jwt_token, except: [:create]
 
   def index
     if params[:user_id].present?
@@ -20,7 +20,12 @@ class Api::ResponsesController < ApplicationController
 
   #Create a response(feelzy)
   def create
-    @user = User.find(params[:user_id])
+    if params[:user_id].present? && params[:user_id] != "0"
+      @user = User.find(params[:user_id])
+    elsif params[:device_token].present?
+      @user = User.find_by(device_token: params[:device_token])
+    end
+
     date = Date.parse(params[:date])
     dateString = date.strftime('%a %d %b %Y')
     @response = Response.new(longitude: params[:longitude],
@@ -86,6 +91,6 @@ class Api::ResponsesController < ApplicationController
   end
 
   def response_params
-    params.permit(:id, :mood, :emoji, :longitude, :latitude, :date, :image_url, :place, :user_id, :team_id)
+    params.permit(:id, :mood, :emoji, :longitude, :latitude, :date, :image_url, :place, :user_id, :team_id, :device_token)
   end
 end

@@ -74,29 +74,31 @@ users = []
 scott = User.create(team: moinsTeam, first_name: "Scott", last_name: "Bennett", email: "scott@scott.com", password: "123456", is_admin: false, is_team_member: true, phone: Faker::PhoneNumber.phone_number, image_url: Faker::Avatar.image)
 scott.save()
 
+latitude = rand(38.943359375...39.143359375)
 
+longititude = rand(-84.7267800844133...-84.5267800844)
 for _ in 0 ..3
-  response = Response.create(mood: angry_words.sample, emoji: angry_emojis.sample, survey: moinSurvey, user: scott, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
+  response = Response.create(mood: angry_words.sample, emoji: angry_emojis.sample, survey: moinSurvey, user: scott, longitude: rand(-84.740724...-84.540724), latitude: rand(38.944122...39.144122), date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
 
   response.save()
 end
 
 for _ in 0 ..3
-  response = Response.create(mood: positive_words.sample, emoji: positive_emojis.sample, survey: moinSurvey, user: scott, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
-
-  response.save()
-end
-
-
-for _ in 0 ..3
-  response = Response.create(mood: sad_words.sample, emoji: sad_emojis.sample, survey: moinSurvey, user: scott, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
+  response = Response.create(mood: positive_words.sample, emoji: positive_emojis.sample, survey: moinSurvey, user: scott, longitude: rand(-84.740724...-84.540724), latitude: rand(38.944122...39.144122), date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
 
   response.save()
 end
 
 
 for _ in 0 ..3
-  response = Response.create(mood: neutral_words.sample, emoji: neutral_emojis.sample, survey: moinSurvey, user: scott, longitude: Faker::Address.longitude, latitude: Faker::Address.latitude, date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
+  response = Response.create(mood: sad_words.sample, emoji: sad_emojis.sample, survey: moinSurvey, user: scott, longitude: rand(-84.740724...-84.540724), latitude: rand(38.944122...39.144122), date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
+
+  response.save()
+end
+
+
+for _ in 0 ..3
+  response = Response.create(mood: neutral_words.sample, emoji: neutral_emojis.sample, survey: moinSurvey, user: scott, longitude: rand(-84.740724...-84.540724), latitude: rand(38.944122...39.144122), date: Faker::Date.backward(100), image_url: Faker::Avatar.image, place: "#{Faker::Address.city}, #{Faker::Address.state}")
 
   response.save
 end
