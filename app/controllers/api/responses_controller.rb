@@ -37,7 +37,8 @@ class Api::ResponsesController < ApplicationController
     )
     @response.date = date
     @user.responses << @response
-    if @response.save
+    @user.last_survey_date = date
+    if @response.save && @user.save
       render :ok, json: {id: @response.id,
                          date: dateString,
                          longitude: @response.longitude,

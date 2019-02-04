@@ -141,6 +141,11 @@ end
 
 
 
-# team = Team.create(team_name: "Team A")
-# team.user = moin
-# team.save()
+all_users = User.all
+
+all_users.each do |user|
+  if !user.responses.empty?
+    user.last_survey_date = user.responses.last.date
+    user.save
+  end
+end
