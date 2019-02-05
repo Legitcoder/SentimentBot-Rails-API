@@ -33,7 +33,7 @@ class Api::SurveysController < ApplicationController
     time = params[:time]
     new_schedule = params[:schedule]
     #string_date = params[:start_date]
-    #start_date = Date.strptime(string_date, "%m/%d/%Y")
+    start_date = Date.today
     team_members = @survey.team.users
 
     team_members.each do |team_member|
@@ -49,16 +49,17 @@ class Api::SurveysController < ApplicationController
 
     @survey.schedule = new_schedule
     @survey.time = time
+    @survey.start_date = start_date
     #@survey.start_date = start_date
     if @survey.schedule != "Now"
       if @survey.save
-        render :ok, json: @survey
+        render "api/surveys/show", status: :ok
       else
         @errors = @survey.errors.full_messages
         render json: { message: @errors }, status: :unprocessable_entity
       end
     else
-      render :ok, json: {}
+      render "api/surveys/show", status: :ok
     end
   end
 
