@@ -129,7 +129,7 @@ class Api::UsersController < ApplicationController
       @team.users.delete(@user)
       @user.is_team_member = false
       if @user.save
-        render :ok, json: { user: @user }
+        render :ok, json: @user
       else
         render json: { message: ["User couldn't be removed from team, Please Try again!"] }, status: :unprocessable_entity
       end

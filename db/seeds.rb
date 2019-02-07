@@ -104,8 +104,15 @@ for _ in 0 ..3
 end
 
 
-for _ in 0..200
-  user = User.create(team: teams.sample, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Lorem.word, is_admin: false, is_team_member: true, phone: Faker::PhoneNumber.phone_number, image_url: Faker::Avatar.image)
+
+for _ in 0..100
+  user = User.create(team: teams.sample, first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Lorem.word, is_admin: false, is_team_member: true, phone: Faker::PhoneNumber.phone_number, image_url: "https://randomuser.me/api/portraits/men/#{rand(1..99)}.jpg")
+  users << user
+  user.save()
+end
+
+for _ in 0..100
+  user = User.create(team: teams.sample, first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Lorem.word, is_admin: false, is_team_member: true, phone: Faker::PhoneNumber.phone_number, image_url: "https://randomuser.me/api/portraits/women/#{rand(1..99)}.jpg")
   users << user
   user.save()
 end
