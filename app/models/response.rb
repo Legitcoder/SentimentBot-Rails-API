@@ -4,10 +4,8 @@ class Response < ApplicationRecord
 
 
   reverse_geocoded_by :latitude, :longitude do |obj,results|
-    debugger
     if geo = results.first
       if geo.data["error"] != "Unable to geocode"
-        debugger
         obj.place = "#{geo.state}, #{geo.country}"
       else
         obj.place = "N/A"
